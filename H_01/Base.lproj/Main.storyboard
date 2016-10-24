@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pbd-d8-ol2">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9L-Rj-zmH">
+                                <rect key="frame" x="180" y="257" width="84" height="30"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="94Y-DB-wlo" kind="show" identifier="toSearchView" id="I28-M0-qim"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inSeoul.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="F0A-GW-17o">
+                                <rect key="frame" x="16" y="106" width="288" height="137"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAO-Ur-N2U">
+                                <rect key="frame" x="61" y="257" width="84" height="30"/>
+                                <state key="normal" title="Random">
+                                    <color key="titleColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="VAP-j8-Jsy" kind="show" identifier="toRandomView" id="hN5-fG-rAA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15970965309200613" green="0.15970965309200613" blue="0.15970965309200613" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="F6O-0X-Bk5"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="mainImageView" destination="F0A-GW-17o" id="VQe-aB-ALM"/>
+                        <outlet property="randomButton" destination="fAO-Ur-N2U" id="FTO-Op-hdP"/>
+                        <outlet property="searchButton" destination="a9L-Rj-zmH" id="d6y-Ju-xIX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808" y="916"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="xya-yE-B6C">
+            <objects>
+                <viewController id="94Y-DB-wlo" customClass="SearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wS6-IC-mnu"/>
+                        <viewControllerLayoutGuide type="bottom" id="lmX-nT-Td3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dxa-hv-UgS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7j-h7-jXt">
+                                <rect key="frame" x="207" y="114" width="80" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="UX9-H3-gGF" kind="show" identifier="toResultView" id="FuB-Li-F1G"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter the place" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1CS-UD-azb">
+                                <rect key="frame" x="34" y="114" width="170" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.94865301724137929" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="94Y-DB-wlo" id="eJZ-HZ-aY1"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haN-Jg-Hiy">
+                                <rect key="frame" x="39" y="215" width="57" height="66"/>
+                                <state key="normal" image="icon1.jpg"/>
+                                <connections>
+                                    <segue destination="Hc3-6T-7n4" kind="show" identifier="toMyeongDongView" id="jkl-m8-cDm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvi-QJ-ecw">
+                                <rect key="frame" x="128" y="222" width="74" height="59"/>
+                                <state key="normal" image="icon2.jpg"/>
+                                <connections>
+                                    <segue destination="r3e-hn-JWH" kind="show" identifier="toOlympicParkView" id="Ru0-p2-QL2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jld-Iz-4wh">
+                                <rect key="frame" x="218" y="233" width="69" height="48"/>
+                                <state key="normal" image="icon3.jpg"/>
+                                <connections>
+                                    <segue destination="tb8-85-a37" kind="show" identifier="toSevitIslandView" id="kqf-NS-mc6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvw-A7-dsP">
+                                <rect key="frame" x="34" y="304" width="67" height="67"/>
+                                <state key="normal" image="icon4.jpg"/>
+                                <connections>
+                                    <segue destination="926-Rg-vFN" kind="show" identifier="toCoaxView" id="jQb-gL-Xv0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrG-V8-5Gd">
+                                <rect key="frame" x="128" y="296" width="74" height="75"/>
+                                <state key="normal" image="icon5.jpg"/>
+                                <connections>
+                                    <segue destination="AAz-WS-bPL" kind="show" identifier="toSeoulTowerView" id="v2E-uP-nnw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHI-F9-fgF">
+                                <rect key="frame" x="223" y="296" width="58" height="75"/>
+                                <state key="normal" image="icon6.jpg"/>
+                                <connections>
+                                    <segue destination="R1P-7C-CdJ" kind="show" id="7Qm-Ih-svS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="searchButton" destination="X7j-h7-jXt" id="Pg4-NB-5g5"/>
+                        <outlet property="searchText" destination="1CS-UD-azb" id="NbV-uY-t4e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EWH-eH-0T0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1170" y="612"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="Yg6-c7-X8B">
+            <objects>
+                <viewController id="UX9-H3-gGF" customClass="ResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P9N-KG-oeN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xoi-Oa-1fz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dYr-Aq-9g2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Info Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exA-Va-NmE">
+                                <rect key="frame" x="55" y="156" width="208" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67L-Ob-c9I">
+                                <rect key="frame" x="45" y="276" width="230" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0v3-yY-HKc">
+                                        <rect key="frame" x="29" y="18" width="172" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Go to Olympic Park">
+                                            <color key="titleColor" red="0.99194377660751343" green="0.99247032403945923" blue="0.99583286046981812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="r3e-hn-JWH" kind="show" identifier="toOlympicParkView" id="O8v-Sq-wL2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.34082534528123698" green="0.49932785643430189" blue="0.63451874256134033" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vsC-Gy-7fZ">
+                                <rect key="frame" x="44" y="278" width="231" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vH-ct-PXC">
+                                        <rect key="frame" x="37" y="16" width="156" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Go to Meoung-dong">
+                                            <color key="titleColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Hc3-6T-7n4" kind="show" identifier="toMyeongDongView" id="b6p-iP-Gha"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.27290196075284973" green="0.5" blue="0.35469908155196395" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-a7-hNZ">
+                                <rect key="frame" x="44" y="277" width="232" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdY-39-Hjg">
+                                        <rect key="frame" x="48" y="16" width="136" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Go to Sevit Island">
+                                            <color key="titleColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="tb8-85-a37" kind="show" identifier="toSevitIslandView" id="RWl-IR-pUF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.63451874256134033" green="0.58067529595573553" blue="0.29998011218648163" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JNV-wQ-XG6">
+                                <rect key="frame" x="45" y="277" width="230" height="65"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwS-iX-DSC">
+                                        <rect key="frame" x="38" y="18" width="154" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Go to Seoul Tower">
+                                            <color key="titleColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="AAz-WS-bPL" kind="show" identifier="toSeoulTowerView" id="Xau-KH-RfA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.5" green="0.3062024847972894" blue="0.47255462353143518" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5VY-jZ-dmU">
+                                <rect key="frame" x="44" y="277" width="230" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSC-tg-S8C">
+                                        <rect key="frame" x="40" y="18" width="151" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Go to Lotte World">
+                                            <color key="titleColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="R1P-7C-CdJ" kind="show" identifier="toLotteWorldView" id="EXC-KA-vRc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23085714920334996" green="0.51564546782981213" blue="0.63451874256134033" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coo-vX-Cc9">
+                                <rect key="frame" x="45" y="278" width="230" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JF-XJ-AI1">
+                                        <rect key="frame" x="72" y="16" width="86" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Go to Coax">
+                                            <color key="titleColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="926-Rg-vFN" kind="show" identifier="toCoaxView" id="zKW-yz-BGb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.36467598601927781" green="0.2952537154676424" blue="0.63451874256134033" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1T-Qv-UWO">
+                                <rect key="frame" x="8" y="201" width="302" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.76735210277987431" blue="0.88176148764394702" alpha="0.54137931029999997" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15970965309999999" green="0.15970965309999999" blue="0.15970965309999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="coaxButton" destination="1JF-XJ-AI1" id="NqW-6P-GpM"/>
+                        <outlet property="coaxView" destination="coo-vX-Cc9" id="1RB-zR-42H"/>
+                        <outlet property="infoLabel" destination="exA-Va-NmE" id="8Py-2R-xzZ"/>
+                        <outlet property="lotteWorldButton" destination="WSC-tg-S8C" id="7fi-9e-5h0"/>
+                        <outlet property="lotteWorldView" destination="5VY-jZ-dmU" id="hQl-N2-IhQ"/>
+                        <outlet property="myeongDongButton" destination="5vH-ct-PXC" id="eZU-BP-zx4"/>
+                        <outlet property="myeongDongView" destination="vsC-Gy-7fZ" id="1FU-Pw-fay"/>
+                        <outlet property="olympicParkButton" destination="0v3-yY-HKc" id="n2h-eH-3A5"/>
+                        <outlet property="olympicParkView" destination="67L-Ob-c9I" id="dSB-90-5bs"/>
+                        <outlet property="seoulTowerButton" destination="kwS-iX-DSC" id="bDa-3Q-zdd"/>
+                        <outlet property="seoulTowerView" destination="JNV-wQ-XG6" id="Ujb-Bm-vjW"/>
+                        <outlet property="sevitIslandButton" destination="cdY-39-Hjg" id="pe3-4A-qUz"/>
+                        <outlet property="sevitIslandView" destination="cLf-a7-hNZ" id="pTq-45-JZo"/>
+                        <outlet property="testLabel" destination="r1T-Qv-UWO" id="xBV-Ti-rvF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RQr-ge-oy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533" y="612"/>
+        </scene>
+        <!--Coax View Controller-->
+        <scene sceneID="aBW-SX-6Iy">
+            <objects>
+                <viewController id="926-Rg-vFN" customClass="CoaxViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A0I-Y2-uE5"/>
+                        <viewControllerLayoutGuide type="bottom" id="oDA-e0-4W3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ABG-LT-eGe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coax2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mz6-AV-FeK">
+                                <rect key="frame" x="13" y="229" width="295" height="168"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="g2l-eT-o2I">
+                                <rect key="frame" x="78" y="418" width="165" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                </segments>
+                                <color key="tintColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeImage:" destination="926-Rg-vFN" eventType="valueChanged" id="dZ3-cr-Bku"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coax in Seoul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lkc-sD-B8L">
+                                <rect key="frame" x="9" y="192" width="250" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pimage0.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kus-g2-JI8">
+                                <rect key="frame" x="0.0" y="59" width="320" height="125"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="coaxImageView" destination="Kus-g2-JI8" id="v81-zf-Gjb"/>
+                        <outlet property="imageView" destination="Mz6-AV-FeK" id="4FD-wV-DV9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j0f-Vd-wn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2289" y="288"/>
+        </scene>
+        <!--Myeong Dong View Controller-->
+        <scene sceneID="BQt-5d-Kqk">
+            <objects>
+                <viewController id="Hc3-6T-7n4" customClass="MyeongDongViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SOA-Bk-4WQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="UJ3-Kp-2a9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pbD-bh-C2D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="myeong4.png" translatesAutoresizingMaskIntoConstraints="NO" id="bCV-E3-FZ3">
+                                <rect key="frame" x="12" y="227" width="297" height="167"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wSh-d3-LMk">
+                                <rect key="frame" x="55" y="413" width="211" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                                <color key="tintColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeImage:" destination="Hc3-6T-7n4" eventType="valueChanged" id="SkF-30-bQM"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Myeong-Dong in Seoul" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccs-ll-cxz">
+                                <rect key="frame" x="10" y="191" width="214" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pimage3.png" translatesAutoresizingMaskIntoConstraints="NO" id="UyK-gp-O7f">
+                                <rect key="frame" x="0.0" y="58" width="320" height="125"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="bCV-E3-FZ3" id="5kW-WH-AlF"/>
+                        <outlet property="myeongImageView" destination="UyK-gp-O7f" id="cte-BS-A8u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nKx-L3-Wzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1909" y="288"/>
+        </scene>
+        <!--Lotte World View Controller-->
+        <scene sceneID="vmV-CD-26s">
+            <objects>
+                <viewController id="R1P-7C-CdJ" customClass="LotteWorldViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E8D-0p-kNs"/>
+                        <viewControllerLayoutGuide type="bottom" id="9j6-FB-Url"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eRP-5U-h8T">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pimage2.png" translatesAutoresizingMaskIntoConstraints="NO" id="DVu-0V-j5t">
+                                <rect key="frame" x="0.0" y="58" width="320" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lotte World in Seoul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caX-4h-KLl">
+                                <rect key="frame" x="7" y="202" width="197" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lotte1.png" translatesAutoresizingMaskIntoConstraints="NO" id="43C-X3-maa">
+                                <rect key="frame" x="20" y="237" width="280" height="173"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Jx-v0-whr">
+                                <rect key="frame" x="63" y="432" width="194" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                </segments>
+                                <color key="tintColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeImage:" destination="R1P-7C-CdJ" eventType="valueChanged" id="zXq-hg-e9c"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="43C-X3-maa" id="FbH-tT-cy8"/>
+                        <outlet property="lotteImageView" destination="DVu-0V-j5t" id="P6t-cb-7xM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2c9-bg-XbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2278" y="831"/>
+        </scene>
+        <!--Olympic Park View Controller-->
+        <scene sceneID="dr6-Pu-dtU">
+            <objects>
+                <viewController id="r3e-hn-JWH" customClass="OlympicParkViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WpC-Oi-UL5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Prj-aq-uei"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5FE-TV-GzU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="olym4.png" translatesAutoresizingMaskIntoConstraints="NO" id="oFo-Qx-8R2">
+                                <rect key="frame" x="15" y="228" width="290" height="166"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Olympic Park in Seoul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vr-Tf-bKu">
+                                <rect key="frame" x="5" y="191" width="254" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="h20-xB-y0n">
+                                <rect key="frame" x="56" y="416" width="208" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                                <color key="tintColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeImage:" destination="r3e-hn-JWH" eventType="valueChanged" id="Bdx-cQ-HDn"/>
+                                </connections>
+                            </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pimage4.png" translatesAutoresizingMaskIntoConstraints="NO" id="A8W-Zb-aRa">
+                                <rect key="frame" x="0.0" y="59" width="320" height="124"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="oFo-Qx-8R2" id="eAz-f3-NVm"/>
+                        <outlet property="olympicImageView" destination="A8W-Zb-aRa" id="u4e-u7-YHS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ai6-jn-ter" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1917" y="1367"/>
+        </scene>
+        <!--Sevit Island View Controller-->
+        <scene sceneID="uWb-XZ-clH">
+            <objects>
+                <viewController id="tb8-85-a37" customClass="SevitIslandViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bbl-2D-OF0"/>
+                        <viewControllerLayoutGuide type="bottom" id="dAX-qS-MS4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fTp-pZ-QnD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sevit1.png" translatesAutoresizingMaskIntoConstraints="NO" id="m1G-B8-aHW">
+                                <rect key="frame" x="17" y="229" width="286" height="169"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sevit Island in Seoul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvx-k0-FVv">
+                                <rect key="frame" x="5" y="191" width="230" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jp9-ua-LrF">
+                                <rect key="frame" x="67" y="416" width="187" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                </segments>
+                                <color key="tintColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeImage:" destination="tb8-85-a37" eventType="valueChanged" id="jxH-IQ-eYV"/>
+                                </connections>
+                            </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pimage1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ctd-Vu-aiT">
+                                <rect key="frame" x="0.0" y="58" width="320" height="125"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="m1G-B8-aHW" id="jJT-7a-vd9"/>
+                        <outlet property="sevitImageView" destination="ctd-Vu-aiT" id="5lc-18-hBv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RJP-OL-PLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1917" y="831"/>
+        </scene>
+        <!--Seoul Tower View Controller-->
+        <scene sceneID="0BN-h4-8qS">
+            <objects>
+                <viewController id="AAz-WS-bPL" customClass="SeoulTowerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Aib-38-tgF"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Ig-O7-vmp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="14h-pA-6EB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seoul Tower in Seoul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3br-FT-PUJ">
+                                <rect key="frame" x="6" y="192" width="229" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gX5-D3-SES">
+                                <rect key="frame" x="53" y="417" width="214" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                                <color key="tintColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeImage:" destination="AAz-WS-bPL" eventType="valueChanged" id="5Bz-mf-sNz"/>
+                                </connections>
+                            </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tower4.png" translatesAutoresizingMaskIntoConstraints="NO" id="UTC-Mh-l8G">
+                                <rect key="frame" x="20" y="236" width="280" height="168"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pimage5.png" translatesAutoresizingMaskIntoConstraints="NO" id="nFx-Ze-1NW">
+                                <rect key="frame" x="0.0" y="59" width="320" height="125"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="UTC-Mh-l8G" id="OFQ-Vv-ux5"/>
+                        <outlet property="seoulImageView" destination="nFx-Ze-1NW" id="dOH-Tj-jgg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qfr-DU-R3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2278" y="1367"/>
+        </scene>
+        <!--Random View Controller-->
+        <scene sceneID="vVl-iE-0S5">
+            <objects>
+                <viewController id="VAP-j8-Jsy" customClass="RandomViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cpf-Kv-crw"/>
+                        <viewControllerLayoutGuide type="bottom" id="98v-Xq-bEI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WFt-7G-Lcc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nF6-zY-TFu">
+                                <rect key="frame" x="111" y="320" width="98" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="RANDOM">
+                                    <color key="titleColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectRandom:" destination="VAP-j8-Jsy" eventType="touchUpInside" id="F7Z-PX-a0X"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYs-Fc-GGd">
+                                <rect key="frame" x="16" y="358" width="288" height="61"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IU-kK-4RI">
+                                        <rect key="frame" x="26" y="16" width="39" height="30"/>
+                                        <state key="normal" title="Again">
+                                            <color key="titleColor" red="0.99291115999221802" green="0.99568349123001099" blue="0.99203580617904663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectAgain:" destination="VAP-j8-Jsy" eventType="touchUpInside" id="yhC-qY-qBq"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp5-F7-bDS">
+                                        <rect key="frame" x="224" y="20" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0B-2u-1Xp">
+                                        <rect key="frame" x="70" y="20" width="149" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b09-pz-czJ">
+                                        <rect key="frame" x="212" y="10" width="62" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeG-Vl-jwb">
+                                                <rect key="frame" x="12" y="6" width="40" height="30"/>
+                                                <state key="normal" title="Detail">
+                                                    <color key="titleColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="926-Rg-vFN" kind="show" identifier="toCoaxView" id="4pA-Ut-OFX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aq3-37-kCx">
+                                        <rect key="frame" x="212" y="10" width="62" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7De-P2-0o1">
+                                                <rect key="frame" x="12" y="6" width="40" height="30"/>
+                                                <state key="normal" title="Detail">
+                                                    <color key="titleColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="tb8-85-a37" kind="show" identifier="toSevitIslandView" id="ttQ-xX-EPz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QOI-cu-76s">
+                                        <rect key="frame" x="212" y="10" width="62" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3r-Ti-Eq2">
+                                                <rect key="frame" x="12" y="6" width="40" height="30"/>
+                                                <state key="normal" title="Detail">
+                                                    <color key="titleColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="R1P-7C-CdJ" kind="show" identifier="toLotteWorldView" id="0Je-4O-rDt"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MMu-1T-Bor">
+                                        <rect key="frame" x="212" y="10" width="62" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxw-vK-cwn">
+                                                <rect key="frame" x="12" y="6" width="40" height="30"/>
+                                                <state key="normal" title="Detail">
+                                                    <color key="titleColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="Hc3-6T-7n4" kind="show" identifier="toMyeongDongView" id="v3H-AB-26M"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="faT-Tj-UZV">
+                                        <rect key="frame" x="212" y="10" width="62" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brU-Qs-Kgn">
+                                                <rect key="frame" x="12" y="6" width="40" height="30"/>
+                                                <state key="normal" title="Detail">
+                                                    <color key="titleColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="r3e-hn-JWH" kind="show" identifier="toOlympicView" id="dZl-Ay-z8N"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZIT-za-d0C">
+                                        <rect key="frame" x="212" y="10" width="62" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWQ-gh-KtL">
+                                                <rect key="frame" x="12" y="6" width="40" height="30"/>
+                                                <state key="normal" title="Detail">
+                                                    <color key="titleColor" red="0.99611729383468628" green="0.99587720632553101" blue="0.99216729402542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="AAz-WS-bPL" kind="show" identifier="toSeoulTowerView" id="ZME-1T-VU3"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.50422676277435907" green="0.50422676277435907" blue="0.50422676277435907" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pvn-n3-BI1">
+                                <rect key="frame" x="0.0" y="96" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="VAP-j8-Jsy" id="OiS-qj-AUN"/>
+                                    <outlet property="delegate" destination="VAP-j8-Jsy" id="tSg-mv-uw6"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15970965309999999" green="0.15970965309999999" blue="0.15970965309999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="coaxButton" destination="WeG-Vl-jwb" id="j6o-HU-mnT"/>
+                        <outlet property="coaxView" destination="b09-pz-czJ" id="g5I-h4-0y4"/>
+                        <outlet property="info" destination="o0B-2u-1Xp" id="2VA-Im-es0"/>
+                        <outlet property="lotteButton" destination="a3r-Ti-Eq2" id="DiV-7G-XRi"/>
+                        <outlet property="lotteView" destination="QOI-cu-76s" id="zZI-cn-71D"/>
+                        <outlet property="myeongButton" destination="nxw-vK-cwn" id="gA2-xB-Pvp"/>
+                        <outlet property="myeongView" destination="MMu-1T-Bor" id="53D-DR-hI3"/>
+                        <outlet property="olyButton" destination="brU-Qs-Kgn" id="eEL-Zf-1cn"/>
+                        <outlet property="olyView" destination="faT-Tj-UZV" id="vSm-by-3bS"/>
+                        <outlet property="picker" destination="pvn-n3-BI1" id="ALF-Sa-aNQ"/>
+                        <outlet property="seoulButton" destination="gWQ-gh-KtL" id="rgp-KW-ySp"/>
+                        <outlet property="seoulView" destination="ZIT-za-d0C" id="05B-nG-hxR"/>
+                        <outlet property="sevitButton" destination="7De-P2-0o1" id="clc-F9-Mbc"/>
+                        <outlet property="sevitView" destination="Aq3-37-kCx" id="T01-bX-PPN"/>
+                        <outlet property="viewHidden" destination="RYs-Fc-GGd" id="7Bd-27-hQN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vHq-Wg-DtP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1371" y="1200"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dr4-Jz-lK6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pbd-d8-ol2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E2T-EE-kXN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="i8n-KR-En5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0eO-s4-d6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="457" y="916"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="coax2.png" width="543" height="594"/>
+        <image name="icon1.jpg" width="137" height="156"/>
+        <image name="icon2.jpg" width="152" height="121"/>
+        <image name="icon3.jpg" width="150" height="104"/>
+        <image name="icon4.jpg" width="151" height="150"/>
+        <image name="icon5.jpg" width="147" height="157"/>
+        <image name="icon6.jpg" width="125" height="161"/>
+        <image name="inSeoul.jpg" width="1164" height="561"/>
+        <image name="lotte1.png" width="924" height="631"/>
+        <image name="myeong4.png" width="861" height="498"/>
+        <image name="olym4.png" width="690" height="454"/>
+        <image name="pimage0.png" width="564" height="198"/>
+        <image name="pimage1.png" width="564" height="196"/>
+        <image name="pimage2.png" width="564" height="205"/>
+        <image name="pimage3.png" width="564" height="205"/>
+        <image name="pimage4.png" width="564" height="205"/>
+        <image name="pimage5.png" width="564" height="198"/>
+        <image name="sevit1.png" width="954" height="508"/>
+        <image name="tower4.png" width="454" height="298"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="v2E-uP-nnw"/>
+        <segue reference="jQb-gL-Xv0"/>
+        <segue reference="jkl-m8-cDm"/>
+        <segue reference="kqf-NS-mc6"/>
+        <segue reference="Ru0-p2-QL2"/>
+        <segue reference="7Qm-Ih-svS"/>
+    </inferredMetricsTieBreakers>
+</document>
